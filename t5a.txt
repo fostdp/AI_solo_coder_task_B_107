@@ -1,0 +1,54 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.14.5, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\y\AppData\Local\Python\pythoncore-3.14-64\python.exe
+cachedir: .pytest_cache
+rootdir: D:\SOLO-2\AI_solo_coder_task_B_056
+plugins: anyio-3.7.1, asyncio-1.4.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collecting ... collected 15 items
+
+tests/test_feature_validation.py::TestPriorityRankingValidation::test_nsga_ii_pareto_front_coverage_zdt1 PASSED [  6%]
+tests/test_feature_validation.py::TestPriorityRankingValidation::test_nsga_ii_pareto_front_coverage_zdt2_nonconvex PASSED [ 13%]
+tests/test_feature_validation.py::TestPriorityRankingValidation::test_nsga_ii_3objective_dtlz2_coverage FAILED [ 20%]
+tests/test_feature_validation.py::TestPriorityRankingValidation::test_nsga_ii_maximization_objectives PASSED [ 26%]
+tests/test_feature_validation.py::TestPriorityRankingValidation::test_cave_ranking_urgency_drives_priority PASSED [ 33%]
+tests/test_feature_validation.py::TestPriorityRankingValidation::test_cave_ranking_boundary_single_cave PASSED [ 40%]
+tests/test_feature_validation.py::TestPriorityRankingValidation::test_cave_ranking_boundary_empty_list PASSED [ 46%]
+tests/test_feature_validation.py::TestPriorityRankingValidation::test_cave_ranking_boundary_extreme_metrics PASSED [ 53%]
+tests/test_feature_validation.py::TestPriorityRankingValidation::test_cave_ranking_weights_boundary_single_objective FAILED [ 60%]
+tests/test_feature_validation.py::TestPriorityRankingValidation::test_cave_ranking_abnormal_invalid_weights_normalized FAILED [ 66%]
+tests/test_feature_validation.py::TestPriorityRankingValidation::test_cave_ranking_nsga_ii_many_caves_pareto FAILED [ 73%]
+tests/test_feature_validation.py::TestPriorityRankingValidation::test_simulated_visitor_flow_weekend_peak_pattern FAILED [ 80%]
+tests/test_feature_validation.py::TestPriorityRankingValidation::test_simulated_visitor_flow_no_negative_values FAILED [ 86%]
+tests/test_feature_validation.py::TestPriorityRankingValidation::test_nsga_ii_crowding_distance_boundary_points_infinite PASSED [ 93%]
+tests/test_feature_validation.py::TestFeatureIntegration::test_full_workflow_pressure_to_bond_to_shrinkage PASSED [100%]
+
+================================== FAILURES ===================================
+E   AssertionError: 解偏离帕累托球面: 1.0504 != 1.0±0.05
+    assert 0.05035542735662135 < 0.05
+     +  where 0.05035542735662135 = abs((1.0503554273566214 - 1.0))
+D:\SOLO-2\AI_solo_coder_task_B_056\tests\test_feature_validation.py:857: AssertionError: 解偏离帕累托球面: 1.0504 != 1.0±0.05
+E   TypeError: CaveProtectionPriorityRanking.rank_caves() got an unexpected keyword argument 'weights'
+D:\SOLO-2\AI_solo_coder_task_B_056\tests\test_feature_validation.py:1024: TypeError: CaveProtectionPriorityRanking.rank_caves() got an unexpected keyword argument 'weights'
+E   TypeError: CaveProtectionPriorityRanking.rank_caves() got an unexpected keyword argument 'weights'
+D:\SOLO-2\AI_solo_coder_task_B_056\tests\test_feature_validation.py:1051: TypeError: CaveProtectionPriorityRanking.rank_caves() got an unexpected keyword argument 'weights'
+E   AssertionError: 帕累托前沿数量=0，应≥2
+    assert 0 >= 2
+D:\SOLO-2\AI_solo_coder_task_B_056\tests\test_feature_validation.py:1087: AssertionError: 帕累托前沿数量=0，应≥2
+E   AttributeError: type object 'datetime.datetime' has no attribute 'timedelta'
+D:\SOLO-2\AI_solo_coder_task_B_056\backend\algorithms\priority_ranking.py:644: AttributeError: type object 'datetime.datetime' has no attribute 'timedelta'
+E   AttributeError: type object 'datetime.datetime' has no attribute 'timedelta'
+D:\SOLO-2\AI_solo_coder_task_B_056\backend\algorithms\priority_ranking.py:644: AttributeError: type object 'datetime.datetime' has no attribute 'timedelta'
+============================== warnings summary ===============================
+tests/test_feature_validation.py::TestFeatureIntegration::test_full_workflow_pressure_to_bond_to_shrinkage
+  D:\SOLO-2\AI_solo_coder_task_B_056\backend\algorithms\ssi_modal.py:464: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp = datetime.utcnow().isoformat() + "Z"
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_feature_validation.py::TestPriorityRankingValidation::test_nsga_ii_3objective_dtlz2_coverage
+FAILED tests/test_feature_validation.py::TestPriorityRankingValidation::test_cave_ranking_weights_boundary_single_objective
+FAILED tests/test_feature_validation.py::TestPriorityRankingValidation::test_cave_ranking_abnormal_invalid_weights_normalized
+FAILED tests/test_feature_validation.py::TestPriorityRankingValidation::test_cave_ranking_nsga_ii_many_caves_pareto
+FAILED tests/test_feature_validation.py::TestPriorityRankingValidation::test_simulated_visitor_flow_weekend_peak_pattern
+FAILED tests/test_feature_validation.py::TestPriorityRankingValidation::test_simulated_visitor_flow_no_negative_values
+=================== 6 failed, 9 passed, 1 warning in 19.64s ===================
