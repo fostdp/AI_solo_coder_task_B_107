@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>莫高窟壁画地仗层剥离监测与灌浆加固效果评估系统</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <aside id="sidebar">
+            <div class="logo-section">
+                <div class="logo-icon">🏛️</div>
+                <div class="logo-text">
+                    <h1>莫高窟壁画监测</h1>
+                    <p>地仗层剥离·灌浆加固评估</p>
+                </div>
+            </div>
+
+            <div class="cave-selector">
+                <label>选择洞窟</label>
+                <select id="caveSelect" class="form-select"></select>
+            </div>
+
+            <div class="status-cards">
+                <div class="status-card card-vibration">
+                    <div class="card-icon">📡</div>
+                    <div class="card-content">
+                        <span class="card-value" id="vibCount">60</span>
+                        <span class="card-label">振动传感器</span>
+                    </div>
+                </div>
+                <div class="status-card card-thermal">
+                    <div class="card-icon">🌡️</div>
+                    <div class="card-content">
+                        <span class="card-value" id="thermCount">20</span>
+                        <span class="card-label">热成像仪</span>
+                    </div>
+                </div>
+                <div class="status-card card-alert">
+                    <div class="card-icon">⚠️</div>
+                    <div class="card-content">
+                        <span class="card-value" id="alertCount">0</span>
+                        <span class="card-label">活动告警</span>
+                    </div>
+                </div>
+                <div class="status-card card-grout">
+                    <div class="card-icon">🧪</div>
+                    <div class="card-content">
+                        <span class="card-value" id="groutCount">0</span>
+                        <span class="card-label">灌浆任务</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <h3 class="panel-title">
+                    <span class="panel-icon">🔴</span>
+                    剥离空鼓区域
+                </h3>
+                <div class="layer-controls">
+                    <label class="toggle-row">
+                        <span>显示空鼓区域</span>
+                        <input type="checkbox" id="toggleDelamination" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <label class="toggle-row">
+                        <span>半透明显示</span>
+                        <input type="checkbox" id="toggleTransparent" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <div class="slider-row">
+                        <span>透明度</span>
+                        <input type="range" id="opacitySlider" min="0.1" max="0.9" step="0.05" value="0.45">
+                        <span id="opacityValue">0.45</span>
+                    </div>
+                </div>
+                <div id="delaminationList" class="region-list"></div>
+            </div>
+
+            <div class="panel-section">
+                <h3 class="panel-title">
+                    <span class="panel-icon">💧</span>
+                    灌浆扩散模拟
+                </h3>
+                <div class="layer-controls">
+                    <label class="toggle-row">
+                        <span>显示扩散球体</span>
+                        <input type="checkbox" id="toggleDiffusion" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <label class="toggle-row">
+                        <span>粒子流线</span>
+                        <input type="checkbox" id="toggleStreamlines" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <div class="slider-row">
+                        <span>时间进度</span>
+                        <input type="range" id="timeSlider" min="0" max="100" value="100">
+                        <span id="timeValue">3600s</span>
+                    </div>
+                </div>
+                <div id="groutingList" class="region-list"></div>
+            </div>
+
+            <div class="panel-section">
+                <h3 class="panel-title">
+                    <span class="panel-icon">📊</span>
+                    模态分析结果
+                </h3>
+                <div id="modalInfo" class="modal-display">
+                    <div class="modal-item">
+                        <span class="modal-order">f₁</span>
+                        <span class="modal-freq" id="freq1">-- Hz</span>
+                        <span class="modal-damp" id="damp1">ξ --</span>
+                    </div>
+                    <div class="modal-item">
+                        <span class="modal-order">f₂</span>
+                        <span class="modal-freq" id="freq2">-- Hz</span>
+                        <span class="modal-damp" id="damp2">ξ --</span>
+                    </div>
+                    <div class="modal-item">
+                        <span class="modal-order">f₃</span>
+                        <span class="modal-freq" id="freq3">-- Hz</span>
+                        <span class="modal-damp" id="damp3">ξ --</span>
+                    </div>
+                    <div class="modal-item">
+                        <span class="modal-order">f₄</span>
+                        <span class="modal-freq" id="freq4">-- Hz</span>
+                        <span class="modal-damp" id="damp4">ξ --</span>
+                    </div>
+                    <div class="modal-item">
+                        <span class="modal-order">f₅</span>
+                        <span class="modal-freq" id="freq5">-- Hz</span>
+                        <span class="modal-damp" id="damp5">ξ --</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn btn-primary" id="btnRefresh">🔄 刷新数据</button>
+                <button class="btn btn-secondary" id="btnAnalyze">⚡ 运行模态分析</button>
+                <button class="btn btn-info" id="btnAssess">📋 加固效果评估</button>
+            </div>
+
+            <div class="footer-info">
+                <p>敦煌研究院 · 文物保护科技中心</p>
+                <p class="ver">v1.0.0 · 2026</p>
+            </div>
+        </aside>
+
+        <main id="mainArea">
+            <header id="topBar">
+                <div class="breadcrumb">
+                    <span id="caveName">莫高窟</span>
+                    <span class="sep">›</span>
+                    <span id="viewMode">三维监测视图</span>
+                </div>
+                <div class="toolbar">
+                    <div class="view-switcher">
+                        <button class="view-btn active" data-view="3d">🎲 三维</button>
+                        <button class="view-btn" data-view="front">⬆️ 正视图</button>
+                        <button class="view-btn" data-view="side">➡️ 侧视图</button>
+                        <button class="view-btn" data-view="top">⬇️ 俯视图</button>
+                    </div>
+                    <div class="time-display">
+                        <span id="systemTime">--:--:--</span>
+                        <span class="status-dot" id="connDot"></span>
+                    </div>
+                </div>
+            </header>
+
+            <div id="canvasContainer">
+                <canvas id="threeCanvas"></canvas>
+
+                <div id="threeHud" class="hud-panel top-left">
+                    <h4>洞窟空间信息</h4>
+                    <div class="hud-row"><span>长 × 宽 × 高</span><span id="caveDims">-- m</span></div>
+                    <div class="hud-row"><span>墙体总面积</span><span id="caveArea">-- m²</span></div>
+                    <div class="hud-row"><span>当前墙面</span><span id="activeWall">全部</span></div>
+                </div>
+
+                <div id="tooltip" class="tooltip hidden">
+                    <div id="tooltipContent"></div>
+                </div>
+
+                <div id="alertOverlay" class="alert-overlay hidden">
+                    <div class="alert-banner">
+                        <span class="alert-icon">⚠️</span>
+                        <span id="alertText"></span>
+                        <button class="alert-close" id="alertClose">×</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="src/app.js"></script>
+</body>
+</html>
