@@ -1,0 +1,31 @@
+..........................................F........F...                  [100%]
+================================== FAILURES ===================================
+____ TestPriorityRankingValidation.test_nsga_ii_3objective_dtlz2_coverage _____
+tests\test_feature_validation.py:795: in test_nsga_ii_3objective_dtlz2_coverage
+    assert abs(sphere_radius_sq - 1.0) < 0.07, (
+E   AssertionError: 解偏离帕累托球面: 1.1054 != 1.0±0.07
+E   assert 0.10536980307562493 < 0.07
+E    +  where 0.10536980307562493 = abs((1.105369803075625 - 1.0))
+_ TestPriorityRankingValidation.test_simulated_visitor_flow_weekend_peak_pattern _
+tests\test_feature_validation.py:1054: in test_simulated_visitor_flow_weekend_peak_pattern
+    assert avg_weekend > avg_weekday * 1.1, (
+E   AssertionError: 周末均值(1286)应大于工作日(1565)的110%
+E   assert np.float64(1286.1057692307693) > (np.float64(1564.9195402298851) * 1.1)
+============================== warnings summary ===============================
+tests/test_feature_validation.py::TestPressureFlowOptimizationValidation::test_abnormal_data_empty_data_raises_error
+  C:\Users\y\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\numpy\_core\fromnumeric.py:3824: RuntimeWarning: Mean of empty slice
+    return _methods._mean(a, axis=axis, dtype=dtype,
+
+tests/test_feature_validation.py::TestPressureFlowOptimizationValidation::test_abnormal_data_empty_data_raises_error
+  C:\Users\y\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\numpy\_core\_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
+    ret = ret.dtype.type(ret / rcount)
+
+tests/test_feature_validation.py: 188 warnings
+  D:\SOLO-2\AI_solo_coder_task_B_056\backend\algorithms\ssi_modal.py:464: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp = datetime.utcnow().isoformat() + "Z"
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_feature_validation.py::TestPriorityRankingValidation::test_nsga_ii_3objective_dtlz2_coverage
+FAILED tests/test_feature_validation.py::TestPriorityRankingValidation::test_simulated_visitor_flow_weekend_peak_pattern
+2 failed, 53 passed, 190 warnings in 22.62s
