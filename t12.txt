@@ -1,0 +1,25 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.14.5, pytest-9.0.3, pluggy-1.6.0
+rootdir: D:\SOLO-2\AI_solo_coder_task_B_056
+plugins: anyio-3.7.1, asyncio-1.4.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 2 items
+
+tests\test_feature_validation.py FF                                      [100%]
+
+================================== FAILURES ===================================
+____ TestPriorityRankingValidation.test_nsga_ii_3objective_dtlz2_coverage _____
+tests\test_feature_validation.py:795: in test_nsga_ii_3objective_dtlz2_coverage
+    assert abs(sphere_radius_sq - 1.0) < 0.07, (
+E   AssertionError: 解偏离帕累托球面: 1.1054 != 1.0±0.07
+E   assert 0.10536980307562493 < 0.07
+E    +  where 0.10536980307562493 = abs((1.105369803075625 - 1.0))
+_ TestPriorityRankingValidation.test_simulated_visitor_flow_weekend_peak_pattern _
+tests\test_feature_validation.py:1054: in test_simulated_visitor_flow_weekend_peak_pattern
+    assert avg_weekend > avg_weekday * 1.1, (
+E   AssertionError: 周末均值(1263)应大于工作日(1591)的110%
+E   assert np.float64(1262.5384615384614) > (np.float64(1591.007662835249) * 1.1)
+=========================== short test summary info ===========================
+FAILED tests/test_feature_validation.py::TestPriorityRankingValidation::test_nsga_ii_3objective_dtlz2_coverage
+FAILED tests/test_feature_validation.py::TestPriorityRankingValidation::test_simulated_visitor_flow_weekend_peak_pattern
+============================== 2 failed in 4.48s ==============================
