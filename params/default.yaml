@@ -1,0 +1,52 @@
+app_name: "古代壁画地仗层剥离监测与灌浆加固效果评估系统"
+debug: false
+
+database_url: "postgresql+asyncpg://postgres:postgres@localhost:5432/mogao_monitor"
+sync_database_url: "postgresql://postgres:postgres@localhost:5432/mogao_monitor"
+
+redis_url: "redis://localhost:6379/0"
+consumer_group: "mogao_workers"
+stream_block_ms: 5000
+stream_max_len: 10000
+
+ssi:
+  model_order_min: 10
+  model_order_max: 50
+  stability_freq_tol: 0.01
+  stability_damp_tol: 0.05
+  stability_mac_tol: 0.97
+  block_rows_max: 200
+  sampling_rate_hz: 2000.0
+
+wavelet:
+  name: "db8"
+  level: 5
+  mode: "soft"
+  threshold: "rigrsure"
+
+grout:
+  viscosity_pa_s: 0.25
+  pressure_kpa_default: 50.0
+  porosity_default: 0.35
+  permeability_m2: 1.0e-12
+  wall_thickness_mm: 50.0
+
+alert:
+  area_increase_pct: 10.0
+  freq_drop_pct: 5.0
+  check_interval_minutes: 30
+
+push:
+  wecom_webhook_url: ""
+  satellite_sms_api_url: ""
+  satellite_sms_api_key: ""
+
+services:
+  ingest_port: 8001
+  wavelet_port: 8002
+  ssi_port: 8003
+  grout_port: 8004
+  alert_ws_port: 8005
+
+frontend:
+  api_base: "http://localhost:8005"
