@@ -1,0 +1,72 @@
+﻿
+--- sens=1.0 ---
+  delta=0.0000: deg=0.06%, 无
+  delta=0.0020: deg=11.58%, 中
+  delta=0.0041: deg=21.60%, 中
+  delta=0.0061: deg=30.30%, 高
+  delta=0.0082: deg=37.86%, 高
+  delta=0.0102: deg=44.44%, 极高
+  delta=0.0122: deg=50.18%, 极高
+  delta=0.0143: deg=55.20%, 极高
+  delta=0.0163: deg=59.59%, 极高
+  delta=0.0184: deg=63.44%, 极高
+  delta=0.0204: deg=66.83%, 极高
+  delta=0.0224: deg=69.82%, 极高
+  delta=0.0245: deg=72.45%, 极高
+  delta=0.0265: deg=74.79%, 极高
+  delta=0.0286: deg=76.86%, 极高
+  FOUND levels: {'高', '极高', '无', '中'}
+
+--- sens=2.0 ---
+  delta=0.0000: deg=0.12%, 无
+  delta=0.0020: deg=21.60%, 中
+  delta=0.0041: deg=37.86%, 高
+  delta=0.0061: deg=50.18%, 极高
+  delta=0.0082: deg=59.59%, 极高
+  delta=0.0102: deg=66.83%, 极高
+  delta=0.0122: deg=72.45%, 极高
+  delta=0.0143: deg=76.86%, 极高
+  delta=0.0163: deg=80.35%, 极高
+  delta=0.0184: deg=83.13%, 极高
+  delta=0.0204: deg=85.38%, 极高
+  delta=0.0224: deg=87.21%, 极高
+  delta=0.0245: deg=88.72%, 极高
+  delta=0.0265: deg=89.97%, 极高
+  delta=0.0286: deg=91.03%, 极高
+  FOUND levels: {'高', '极高', '无', '中'}
+
+--- sens=3.0 ---
+  delta=0.0000: deg=0.18%, 无
+  delta=0.0020: deg=30.30%, 高
+  delta=0.0041: deg=50.18%, 极高
+  delta=0.0061: deg=63.44%, 极高
+  delta=0.0082: deg=72.45%, 极高
+  delta=0.0102: deg=78.70%, 极高
+  delta=0.0122: deg=83.13%, 极高
+  delta=0.0143: deg=86.34%, 极高
+  delta=0.0163: deg=88.72%, 极高
+  delta=0.0184: deg=90.52%, 极高
+  delta=0.0204: deg=91.92%, 极高
+  delta=0.0224: deg=93.02%, 极高
+  delta=0.0245: deg=93.90%, 极高
+  delta=0.0265: deg=94.63%, 极高
+  delta=0.0286: deg=95.23%, 极高
+  FOUND levels: {'高', '极高', '无'}
+
+--- sens=5.0 ---
+  delta=0.0000: deg=0.30%, 无
+  delta=0.0020: deg=44.44%, 极高
+  delta=0.0041: deg=66.83%, 极高
+  delta=0.0061: deg=78.70%, 极高
+  delta=0.0082: deg=85.38%, 极高
+  delta=0.0102: deg=89.38%, 极高
+  delta=0.0122: deg=91.92%, 极高
+  delta=0.0143: deg=93.63%, 极高
+  delta=0.0163: deg=94.84%, 极高
+  delta=0.0184: deg=95.73%, 极高
+  delta=0.0204: deg=96.41%, 极高
+  delta=0.0224: deg=96.94%, 极高
+  delta=0.0245: deg=97.37%, 极高
+  delta=0.0265: deg=97.71%, 极高
+  delta=0.0286: deg=98.00%, 极高
+  FOUND levels: {'极高', '无'}
