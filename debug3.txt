@@ -1,0 +1,43 @@
+﻿Available formulations: ['sintered_stone_powder_ps_basic', 'sintered_stone_powder_ps_modified', 'high_modulus_low_shrinkage', 'traditional_lime_mortar']
+
+=== 湿度影响 (20C, horizon=28d) ===
+RH= 30%: shrink=6.131700e-04, risk_idx=0.854, risk=中
+RH= 40%: shrink=5.925900e-04, risk_idx=0.829, risk=中
+RH= 50%: shrink=5.689700e-04, risk_idx=0.799, risk=中
+RH= 60%: shrink=5.415500e-04, risk_idx=0.765, risk=中
+RH= 70%: shrink=5.260900e-04, risk_idx=0.746, risk=中
+RH= 80%: shrink=5.092400e-04, risk_idx=0.725, risk=中
+RH= 90%: shrink=4.907800e-04, risk_idx=0.702, risk=中
+RH= 95%: shrink=4.808600e-04, risk_idx=0.689, risk=中
+
+=== 90%RH vs 30%RH shrinkage ratio ===
+Ratio (30RH/90RH) = 1.2494
+
+=== 95RH & 100RH ===
+RH=95%: shrink=4.808600e-04, risk_idx=0.689, risk=中
+RH=100%: shrink=4.704200e-04, risk_idx=0.676, risk=中
+
+=== 4配方排序 (20C, 60RH, 28d) ===
+  sintered_stone_powder_ps_basic: 5.415500e-04
+  sintered_stone_powder_ps_modified: 4.048800e-04
+  high_modulus_low_shrinkage: 3.171400e-04
+  traditional_lime_mortar: 8.847300e-04
+Sorted from low to high shrinkage:
+  #1: high_modulus_low_shrinkage = 3.171400e-04
+  #2: sintered_stone_powder_ps_modified = 4.048800e-04
+  #3: sintered_stone_powder_ps_basic = 5.415500e-04
+  #4: traditional_lime_mortar = 8.847300e-04
+
+=== AHT Benchmark predictions (adjusted scenarios) ===
+  sintered_stone_powder_ps_basic@T20_H60: pred=5.415500e-04, suggested_exp=5.523810e-04 (err=2%), pred_98pct=5.307190e-04
+  sintered_stone_powder_ps_basic@T30_H50: pred=6.531400e-04, suggested_exp=6.662028e-04 (err=2%), pred_98pct=6.400772e-04
+  sintered_stone_powder_ps_basic@T20_H60: pred=7.456900e-04, suggested_exp=7.606038e-04 (err=2%), pred_98pct=7.307762e-04
+  high_modulus_low_shrinkage@T20_H60: pred=3.171400e-04, suggested_exp=3.234828e-04 (err=2%), pred_98pct=3.107972e-04
+  traditional_lime_mortar@T20_H60: pred=8.847300e-04, suggested_exp=9.024246e-04 (err=2%), pred_98pct=8.670354e-04
+  sintered_stone_powder_ps_modified@T25_H55: pred=6.046900e-04, suggested_exp=6.167838e-04 (err=2%), pred_98pct=5.925962e-04
+
+=== Risk levels from compare_formulations ===
+  high_modulus_low_shrinkage: risk_idx=0.552, risk=低
+  sintered_stone_powder_ps_modified: risk_idx=0.722, risk=中
+  sintered_stone_powder_ps_basic: risk_idx=1.016, risk=高
+  traditional_lime_mortar: risk_idx=1.823, risk=极高
