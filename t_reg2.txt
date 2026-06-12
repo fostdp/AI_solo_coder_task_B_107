@@ -1,0 +1,64 @@
+...................FFF.FF..F.F.......                                    [100%]
+================================== FAILURES ===================================
+__________________ TestEndToEndPipeline.test_grout_pipeline ___________________
+tests\test_regression.py:282: in test_grout_pipeline
+    assert assessment["overall_score"] > 50
+E   assert 49.75 > 50
+_____ TestPressureFlowPolynomialRegression.test_simulated_data_generation _____
+tests\test_regression.py:287: in test_simulated_data_generation
+    data = generate_simulated_pressure_flow_data(n_points=20, pressure_range=(100.0, 450.0))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   TypeError: generate_simulated_pressure_flow_data() got an unexpected keyword argument 'pressure_range'. Did you mean 'pressure_range_kpa'?
+__________ TestPressureFlowPolynomialRegression.test_polynomial_fit ___________
+tests\test_regression.py:298: in test_polynomial_fit
+    assert regressor.best_degree >= 2
+           ^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'PressureFlowPolynomialRegressor' object has no attribute 'best_degree'. Did you mean: 'max_degree'?
+_ TestPressureFlowPolynomialRegression.test_flow_rate_increases_with_pressure _
+tests\test_regression.py:322: in test_flow_rate_increases_with_pressure
+    q_low = regressor.predict_flow_rate(100.0)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   AttributeError: 'PressureFlowPolynomialRegressor' object has no attribute 'predict_flow_rate'
+_________ TestBondStrengthAssessment.test_bond_strength_assessor_init _________
+tests\test_regression.py:329: in test_bond_strength_assessor_init
+    assessor = BondStrengthAssessor(
+E   TypeError: BondStrengthAssessor.__init__() got an unexpected keyword argument 'reference_damping'. Did you mean 'reference_damping_ratio'?
+__________ TestDryingShrinkagePrediction.test_get_formulation_by_id ___________
+tests\test_regression.py:374: in test_get_formulation_by_id
+    assert formulation.id == "sintered_stone_powder_ps_basic"
+           ^^^^^^^^^^^^^^
+E   AttributeError: 'GroutFormulation' object has no attribute 'id'
+________ TestDryingShrinkagePrediction.test_shrinkage_prediction_basic ________
+tests\test_regression.py:396: in test_shrinkage_prediction_basic
+    assert 0 <= result["crack_risk_index"] <= 1.0
+E   assert np.float64(1.095) <= 1.0
+============================== warnings summary ===============================
+shared\config.py:17
+  D:\SOLO-2\AI_solo_coder_task_B_056\tests\..\shared\config.py:17: PydanticDeprecatedSince20: Support for class-based `config` is deprecated, use ConfigDict instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    class SharedSettings(BaseSettings):
+
+tests/test_regression.py::TestBondStrengthAssessment::test_assess_bond_strength_degradation
+tests/test_regression.py::TestBondStrengthAssessment::test_more_degradation_higher_risk
+tests/test_regression.py::TestBondStrengthAssessment::test_more_degradation_higher_risk
+  D:\SOLO-2\AI_solo_coder_task_B_056\tests\..\backend\algorithms\ssi_modal.py:464: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp = datetime.utcnow().isoformat() + "Z"
+
+tests/test_regression.py::TestPriorityRanking::test_simulated_visitor_flow
+  C:\Users\y\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\numpy\_core\fromnumeric.py:3824: RuntimeWarning: Mean of empty slice
+    return _methods._mean(a, axis=axis, dtype=dtype,
+
+tests/test_regression.py::TestPriorityRanking::test_simulated_visitor_flow
+  C:\Users\y\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\numpy\_core\_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
+    ret = ret.dtype.type(ret / rcount)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_regression.py::TestEndToEndPipeline::test_grout_pipeline - ...
+FAILED tests/test_regression.py::TestPressureFlowPolynomialRegression::test_simulated_data_generation
+FAILED tests/test_regression.py::TestPressureFlowPolynomialRegression::test_polynomial_fit
+FAILED tests/test_regression.py::TestPressureFlowPolynomialRegression::test_flow_rate_increases_with_pressure
+FAILED tests/test_regression.py::TestBondStrengthAssessment::test_bond_strength_assessor_init
+FAILED tests/test_regression.py::TestDryingShrinkagePrediction::test_get_formulation_by_id
+FAILED tests/test_regression.py::TestDryingShrinkagePrediction::test_shrinkage_prediction_basic
+7 failed, 30 passed, 6 warnings in 22.83s
+
