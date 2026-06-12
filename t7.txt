@@ -1,0 +1,64 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.5, pytest-9.0.3, pluggy-1.6.0
+rootdir: d:\SOLO-2\AI_solo_coder_task_B_056
+plugins: anyio-3.7.1, asyncio-1.4.0
+asyncio: mode=Mode.STRICT, debug=False, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+collected 55 items
+
+tests\test_feature_validation.py ..........................FF...F....... [ 70%]
+...F.....FFFFF..                                                         [100%]
+
+================================== FAILURES ===================================
+E   AssertionError: sintered_stone_powder_ps_modified@T25_H55: 预测=0.000451, 实验=0.000605, 误差=25.4% > 10.0%
+    assert np.float64(25.38347107438016) < 10.0
+D:\SOLO-2\AI_solo_coder_task_B_056\tests\test_feature_validation.py:515: AssertionError: sintered_stone_powder_ps_modified@T25_H55: 预测=0.000451, 实验=0.000605, 误差=25.4% > 10.0%
+E   AssertionError: 30%RH收缩应>=90%RH的1.2倍，实际倍数=1.047
+    assert np.float64(1.0466786355475763) >= 1.2
+D:\SOLO-2\AI_solo_coder_task_B_056\tests\test_feature_validation.py:544: AssertionError: 30%RH收缩应>=90%RH的1.2倍，实际倍数=1.047
+E   AssertionError: 95%RH时风险等级=高，应为无/低/中
+    assert '高' in ['无', '低', '中']
+D:\SOLO-2\AI_solo_coder_task_B_056\tests\test_feature_validation.py:608: AssertionError: 95%RH时风险等级=高，应为无/低/中
+E   AssertionError: 解偏离帕累托球面: 1.0504 != 1.0±0.05
+    assert 0.05035542735662135 < 0.05
+     +  where 0.05035542735662135 = abs((1.0503554273566214 - 1.0))
+D:\SOLO-2\AI_solo_coder_task_B_056\tests\test_feature_validation.py:861: AssertionError: 解偏离帕累托球面: 1.0504 != 1.0±0.05
+E   TypeError: CaveProtectionPriorityRanking.rank_caves() got an unexpected keyword argument 'weights'
+D:\SOLO-2\AI_solo_coder_task_B_056\tests\test_feature_validation.py:1028: TypeError: CaveProtectionPriorityRanking.rank_caves() got an unexpected keyword argument 'weights'
+E   TypeError: CaveProtectionPriorityRanking.rank_caves() got an unexpected keyword argument 'weights'
+D:\SOLO-2\AI_solo_coder_task_B_056\tests\test_feature_validation.py:1055: TypeError: CaveProtectionPriorityRanking.rank_caves() got an unexpected keyword argument 'weights'
+E   AssertionError: 帕累托前沿数量=0，应≥2
+    assert 0 >= 2
+D:\SOLO-2\AI_solo_coder_task_B_056\tests\test_feature_validation.py:1091: AssertionError: 帕累托前沿数量=0，应≥2
+E   AttributeError: type object 'datetime.datetime' has no attribute 'timedelta'
+d:\SOLO-2\AI_solo_coder_task_B_056\backend\algorithms\priority_ranking.py:644: AttributeError: type object 'datetime.datetime' has no attribute 'timedelta'
+E   AttributeError: type object 'datetime.datetime' has no attribute 'timedelta'
+d:\SOLO-2\AI_solo_coder_task_B_056\backend\algorithms\priority_ranking.py:644: AttributeError: type object 'datetime.datetime' has no attribute 'timedelta'
+============================== warnings summary ===============================
+tests/test_feature_validation.py::TestPressureFlowOptimizationValidation::test_abnormal_data_empty_data_raises_error
+  C:\Users\y\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\numpy\_core\fromnumeric.py:3824: RuntimeWarning: Mean of empty slice
+    return _methods._mean(a, axis=axis, dtype=dtype,
+
+tests/test_feature_validation.py::TestPressureFlowOptimizationValidation::test_abnormal_data_empty_data_raises_error
+  C:\Users\y\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\numpy\_core\_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
+    ret = ret.dtype.type(ret / rcount)
+
+tests/test_feature_validation.py: 188 warnings
+  d:\SOLO-2\AI_solo_coder_task_B_056\backend\algorithms\ssi_modal.py:464: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    timestamp = datetime.utcnow().isoformat() + "Z"
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ===========================
+FAILED tests/test_feature_validation.py::TestDryingShrinkagePredictionValidation::test_aht_model_prediction_error_under_10pct_benchmark
+FAILED tests/test_feature_validation.py::TestDryingShrinkagePredictionValidation::test_humidity_monotonic_lower_humidity_more_shrinkage
+FAILED tests/test_feature_validation.py::TestDryingShrinkagePredictionValidation::test_boundary_humidity_100pct_saturated_no_shrinkage
+FAILED tests/test_feature_validation.py::TestPriorityRankingValidation::test_nsga_ii_3objective_dtlz2_coverage
+FAILED tests/test_feature_validation.py::TestPriorityRankingValidation::test_cave_ranking_weights_boundary_single_objective
+FAILED tests/test_feature_validation.py::TestPriorityRankingValidation::test_cave_ranking_abnormal_invalid_weights_normalized
+FAILED tests/test_feature_validation.py::TestPriorityRankingValidation::test_cave_ranking_nsga_ii_many_caves_pareto
+FAILED tests/test_feature_validation.py::TestPriorityRankingValidation::test_simulated_visitor_flow_weekend_peak_pattern
+FAILED tests/test_feature_validation.py::TestPriorityRankingValidation::test_simulated_visitor_flow_no_negative_values
+================= 9 failed, 46 passed, 190 warnings in 19.98s =================
+
+=== STDERR ===
+
+=== RETURN CODE: 1 ===
